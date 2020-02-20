@@ -2,6 +2,7 @@ import sys
 from core.color import setColor
 from core.functions import *
 from core.error_handler import *
+from core.compiler import *
 
 helperVariable = False
 try:
@@ -15,3 +16,7 @@ try:
     handler.close()
 except:
     createError(setColor("FileNotFound","red"),"The Target File Not Found !",[],0)
+
+f = open("output.html","w")
+f.writelines(translate(l))
+f.close()
