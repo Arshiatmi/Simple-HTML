@@ -1,3 +1,5 @@
+#!/usr/share/python3
+
 import sys
 from core.color import setColor
 from core.functions import *
@@ -8,7 +10,8 @@ helperVariable = False
 try:
     file_name = sys.argv[1]
 except:
-    print(setColor(f"""Usage : {sys.argv[0]} [Your Code Name].sht""","green"))
+    print(setColor(f"""Usage : python(3) {sys.argv[0]} [Your Code Name].sht""","green"))
+    sys.exit()
 
 try:
     handler = open(file_name)
@@ -17,6 +20,6 @@ try:
 except:
     createError(setColor("FileNotFound","red"),"The Target File Not Found !",[],0)
 
-f = open("output.html","w")
+f = open(file_name + ".html","w")
 f.writelines(translate(l))
 f.close()
