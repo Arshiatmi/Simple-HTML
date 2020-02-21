@@ -15,10 +15,10 @@ Write Your Simple HTML Code Like That :
 	}
 	@@style
 	
-	@body(bgcolor=>"black")
+	@body(bgcolor=>"black")  <!-- You Are Free To Use '=>' / '->' / ':' / '=' Just You Have To Stick All Of Them ( Dont Use Space ) -->
 		@center
 			@p|#p1| Test Text It Is ! @@p @br
-			@p(style->"color:cyan") Another Test TExt @@p
+			@p(style->"color:cyan") Another Test TExt @@p <!-- You Are Free Here Too ! Again, Stick All Of Them(Dont Use Space) -->
 		@@center
 	@@body
 @@html
