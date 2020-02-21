@@ -4,16 +4,57 @@ This Is A Simple Repository To Create A Simple HTML Page Simpler Than The Main H
 # Usage
 Write Your Simple HTML Code Like That : 
   ```
-  @html
-    @head
-      @title Index ! @@title
-    @@head
-  @@html
+@html
+	@head
+		@title Salam ! @@title
+	@@head
+	
+	@style
+	#p1{
+		color:red;
+	}
+	@@style
+	
+	@body(bgcolor=>"black")
+		@center
+			@p|#p1| Test Text It Is ! @@p @br
+			@p(style->"color:cyan") Another Test TExt @@p
+		@@center
+	@@body
+@@html
+
   ```
 
-Run shc.py File With Your Code Name ! For Example :
+Run sht.py File With Your Code Name ! For Example :
 
 `python sht.py code.sht`
+
+Now You Can See Your Page With Name `code.html` !
+
+In Fact Output Is : 
+
+```
+<html>
+	<head>
+		<title> Salam ! </title>
+	</head>
+	
+	<style>
+	#p1{
+		color:red;
+	}
+	</style>
+	
+	<body bgcolor="black">
+		<center>
+			<p id="p1"> Test Text It Is ! </p> <br>
+			<p style="color:cyan"> Another Test TExt </p>
+		</center>
+	</body>
+</html>
+```
+
+***
 
 **Important : All Files In Simple HTML Have sht Format**
 
