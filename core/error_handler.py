@@ -19,17 +19,17 @@ def createError(title,text = setColor("An Error Detected !","red"),code = [],err
         sys.exit()
     code_part = []
     if error_line == 0:
-        print("Error :")
-        code_part.append(code[error_line])
-        print(f"""{setColor(f"-> {error_line} : {code_part[0]}","red")}""")
+        print("\nError :\n")
+        code_part.append(code[error_line].strip())
+        print(f"""\t{setColor(f"-> {error_line} : {code_part[0]}","red")}""")
         try:
-            code_part.append(code[error_line + 1])
-            print(f"{error_line + 1} : {code_part[1]}")
+            code_part.append(code[error_line + 1].strip())
+            print(f"\t{error_line + 1} : {code_part[1]}")
         except:
             pass
         try:
-            code_part.append(code[error_line + 2])
-            print(f"{error_line + 2} : {code_part[2]}")
+            code_part.append(code[error_line + 2].strip())
+            print(f"\t{error_line + 2} : {code_part[2]}")
         except:
             pass
         print(f"""
@@ -38,36 +38,36 @@ def createError(title,text = setColor("An Error Detected !","red"),code = [],err
 """)
         sys.exit()
     elif error_line >= len(code) - 1:
-        print("Error :")
+        print("\nError :\n")
         try:
-            code_part.append(code[error_line - 2])
-            print(f"{error_line - 2} : {code_part[0]}")
+            code_part.append(code[error_line - 2].strip())
+            print(f"\t{error_line - 2} : {code_part[0]}")
         except:
             pass
         try:
-            code_part.append(code[error_line - 1])
-            print(f"{error_line - 1} : {code_part[1]}")
+            code_part.append(code[error_line - 1].strip())
+            print(f"\t{error_line - 1} : {code_part[1]}")
         except:
             pass
-        code_part.append(code[error_line])
-        print(f"""{setColor(f"-> {error_line} : {code_part[2]}","red")}""")
+        code_part.append(code[error_line].strip())
+        print(f"""\t{setColor(f"-> {error_line} : {code_part[2]}","red")}""")
         print(f"""
 
 {title} : {text}
 """)
         sys.exit()
     else:
-        print("Error :")
+        print("\nError :\n")
         try:
-            code_part.append(code[error_line - 1])
-            print(f"{error_line - 1} : {code_part[0]}")
+            code_part.append(code[error_line - 1].strip())
+            print(f"\t{error_line - 1} : {code_part[0]}")
         except:
             pass
-        code_part.append(code[error_line])
-        print(f"""{setColor(f"-> {error_line} : {code_part[1]}","red")}""")
+        code_part.append(code[error_line].strip())
+        print(f"""\t{setColor(f"-> {error_line} : {code_part[1]}","red")}""")
         try:
-            code_part.append(code[error_line - 1])
-            print(f"{error_line + 1} : {code_part[2]}")
+            code_part.append(code[error_line - 1].strip())
+            print(f"\t{error_line + 1} : {code_part[2]}")
         except:
             pass
         print(f"""

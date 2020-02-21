@@ -20,6 +20,6 @@ try:
 except:
     createError(setColor("FileNotFound","red"),"The Target File Not Found !",[],0)
 
-f = open(file_name + ".html","w")
+f = open(file_name.replace(".sht","") + ".html","w")
 f.writelines(translate(l))
 f.close()

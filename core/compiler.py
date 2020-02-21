@@ -13,12 +13,9 @@ def deepTranslate(code):
         for j in tags["end"]:
             code[c] = code[c].replace(j,"</" + j.replace("@@","") + ">")
         for j in tags["start"]:
-            tagDetails = getProps(j)
+            tagDetails = getProps(j,code,c)
             tag = createHTMLTag(tagDetails)
-            s = ""
-            for z in code[c].split(" "):
-                s += z
-            code[c] = s.replace(j,tag)
+            code[c] = code[c].replace(j,tag)
     return code
 
 def translate(code):
