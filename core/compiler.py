@@ -1,8 +1,39 @@
 from core.error_handler import *
 from core.functions import *
 
+def checkForWarnings(code):
+    """
+    Input :
+        code  ->  Array { The Code }
+    Output:
+        null
+    This Function Will Give Some Common Warnings. For Example :
+        -> @head
+          It Seems You Forgot To Close Your Tag !
+    """
+    for c,i in enumerate(code):
+        tags = getAllTags(i)
+        start = tags["start"]
+        end = tags["end"]
+        start.sort()
+        end.sort()
+        for j in start:
+            ok = False
+            for z in end:
+                if "@" + j == z:
+                    ok = True
+            if not ok:
+                if not checkIfExists(code,"@" + j,c):
+                    createWarning("Tag Parsing",f"The Tag {j} Opened But Not Closed !",code,c)
+            ok = False
+
+
 def deepTranslate(code):
     """
+    Input :
+        code  ->  String  { Full Code }
+    Output:
+        code  ->  String  { Translated Code }
     This Function Will Translate With Properties. For Example :
         @body( #myid , $myname , bgcolor => "black" )
     Will Return :
@@ -26,6 +57,9 @@ def translate(code):
     repos_handler = open("repos/html.txt")
     keywords = [i.replace("\n","") for i in repos_handler.readlines()]
     repos_handler.close()
+
+    # Check Warnings
+    checkForWarnings(code)
 
     # Do Deep Translations
     code = deepTranslate(code)

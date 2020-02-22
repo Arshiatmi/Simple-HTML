@@ -4,6 +4,12 @@ from core.lists import *
 
 def file_replace(file_name,text,replace):
     """
+    Input :
+        file_name   ->  String  { The File Name }
+        text        ->  String  { Text That Code Will Find This Strings }
+        replace     ->  String  { Text That Will Be Replaced . }
+    Output:
+        null
     Replace A Text To Another Text In A File
     """
     file = open(file_name)
@@ -16,6 +22,12 @@ def file_replace(file_name,text,replace):
 
 def text_replacer(text,search_array,replace_array):
     """
+    Input :
+        text           ->  String  { The Full Text }
+        search_array   ->  List    { List Of Strings That Wanted To Be Replaced . }
+        replace_array  ->  List    { List Of Strings That Will Be Replaced . }
+    Output:
+        text           ->  String  { The Replaced Answer }
     Replace A List Of Strings To Another List Of Strings.
     """
     if type(text) == list:
@@ -26,6 +38,13 @@ def text_replacer(text,search_array,replace_array):
 
 def correctIn(s1,s2,tars = ["=>","->","=",":"]):
     """
+    Input :
+        s1    ->  String  { First String }
+        s2    ->  String  { Second String }
+        tars  ->  List    { List Of Signs }
+    Output:
+        True / False  ->  Bool  { Is This Ok Or Not ? }  # See In Example Down There
+
     Checks If A String Exists In Another String In Some Specific Situations.
     For Example :
         s1  ---   style=>"color:red"
@@ -47,6 +66,12 @@ def correctIn(s1,s2,tars = ["=>","->","=",":"]):
 
 def getProps(code,fc="",line_number=0):
     """
+    Input :
+        code        ->  String  { A Line Of Code To Get Properties }
+        fc          ->  String  { Full Code }
+        line_number ->  Int     { Current Line ( Line Of code Variable ) }
+    Output:
+        answer      ->  Dict  { Translated Code }
     This Function Will Get All Properties Of A Tag. For Example :
         @body( #myid , $myname , %myclass , bgcolor = "black" )
     Then This Function Will Return :
@@ -101,6 +126,11 @@ def getProps(code,fc="",line_number=0):
 
 def smartIn(array,string):
     """
+    Input :
+        array        ->  List  { A list }
+        string       ->  String  { A String }
+    Output:
+        True / False      ->  Bool  { Checks If String Is In List Or A Part Of Strings Of List Or Not . }
     Checks If A String Exists In An Array Or Not.
     """
     if string in array:
@@ -111,6 +141,12 @@ def smartIn(array,string):
     return False
 
 def isHTML(tagName):
+    """
+    Input :
+        tagName       ->  String  { Tag Name }
+    Output:
+        True / False  ->  Bool  { Checks If Its An HTML Tag Or Not }
+    """
     file = open("repos/html.txt")
     tags = [i.strip() for i in file.readlines()]
     file.close()
@@ -120,10 +156,14 @@ def isHTML(tagName):
 
 def getAllTags(line):
     """
+    Input :
+        line                     ->  String  { The Line }
+    Output:
+        {"start":[],"end":[]}  ->  Dict  { All Tags Exists In Line }
     This Function Will Return All Tags In A Single Line. For Example :
         @title Test Title @@title
     Now Returns :
-        ["@title","@@title"]
+        {"start":["@title"],"end":["@@title"]}
     """
     line = line.strip()
     ends = [i for i in line.split(" ") if i.startswith("@@")]
@@ -152,6 +192,10 @@ def getAllTags(line):
 
 def createHTMLTag(details):
     """
+    Input :
+        details     ->  Dict  { The Line }
+    Output:
+        answer      ->  String  { The Answer That Created By Details . }
     This Function Will Create HTML Tags Using The Details That Created In
     getProps Function. For Example :
         {"_tagname":"body","_id":"myid","_name":"myname","_class":"myclass","bgcolor":"black"}
@@ -194,3 +238,15 @@ def euqals(string1,string2):
     if removeSpace(string1) == removeSpace(string2):
         return True
     return False
+
+def checkIfExists(text,string,line = 0):
+    """
+    Input :
+        text       ->  String  { All Of The Text As An Array }
+        string     ->  String  { The String That We Wanted To Find }
+        line       ->  Int     { The Line That Function Will Check After This Line Number }
+    Output:
+        answer      ->  String  { The Answer That Created By Details . }
+    Check That If A String Exists In a File Or Not ( After An Specific Line )
+    """
+    return smartIn(text[line:],string)
