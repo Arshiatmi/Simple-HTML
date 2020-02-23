@@ -1,4 +1,4 @@
-# Simple-HTML
+# Simple-WEB
 This Is A Simple Repository To Create A Simple HTML Page Simpler Than The Main HTML-CSS-JS :)
 
 # Usage
@@ -25,9 +25,9 @@ Write Your Simple HTML Code Like That :
 
   ```
 
-Run sht.py File With Your Code Name ! For Example :
+Run sw.py File With Your Code Name ! For Example :
 
-`python sht.py code.sht`
+`python sw.py code.sw`
 
 Now You Can See Your Page With Name `code.html` !
 
@@ -56,7 +56,7 @@ In Fact Output Is :
 
 ***
 
-**Important : All Files In Simple HTML Have sht Format**
+**Important : All Files In Simple HTML Have sw Format**
 
 **Important : Commands Are The HTML Tags But Starting With @ Or @@**
 

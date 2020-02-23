@@ -1,6 +1,7 @@
 from core.error_handler import *
 from core.color import *
 from core.lists import *
+import re
 
 def file_replace(file_name,text,replace):
     """
@@ -250,3 +251,26 @@ def checkIfExists(text,string,line = 0):
     Check That If A String Exists In a File Or Not ( After An Specific Line )
     """
     return smartIn(text[line:],string)
+
+
+def isSW(code):
+    """
+    Input :
+        code          ->  String  { The Code As A Big String }
+    Output:
+        True / False  ->  Bool  { Is It Simple Web Code ? }
+    Checks If The Code Is A Simple Web Code Or Not.
+    """
+    start = re.findall("@[A-Za-z][A-Za-z]*",code)
+    end = re.findall("@@[A-Za-z][A-Za-z]*",code)
+    sok = 0
+    eok = 0
+    for i in start:
+        if isHTML(i.replace("@","").strip()):
+            sok += 1
+    for i in end:
+        if isHTML(i.replace("@@","").strip()):
+            eok += 1
+    if sok > (len(start) // 2) and eok > (len(end) // 4):
+        return True
+    return False

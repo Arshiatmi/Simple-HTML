@@ -17,6 +17,7 @@ def createWarning(title,text,code = [],warn_line = 0):
     code_part = []
     if not code and not warn_line:
         print(title + " : " + text)
+        return
     if warn_line == 0:
         print(setColor("\nWarning :\n","yellow"))
         code_part.append(code[warn_line].strip())
