@@ -17,10 +17,16 @@ def checkForWarnings(code):
         end = tags["end"]
         start.sort()
         end.sort()
+        okStarts = []
+        for x in start:
+            allProps = getProps(x,code,c)
+            tg = allProps["_tagname"]
+            okStarts.append(tg)
+        start = okStarts
         for j in start:
             ok = False
             for z in end:
-                if "@" + j == z:
+                if "@@" + j == z:
                     ok = True
             if not ok:
                 if not checkIfExists(code,"@" + j,c):
